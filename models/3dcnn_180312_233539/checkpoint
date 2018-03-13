@@ -1,0 +1,3 @@
+model_checkpoint_path: "/Users/bear/Documents/code/MDP/3D_conv/src/../models/3dcnn_180312_233539/acc_0.90909"
+all_model_checkpoint_paths: "/Users/bear/Documents/code/MDP/3D_conv/src/../models/3dcnn_180312_233539/acc_0.54545"
+all_model_checkpoint_paths: "/Users/bear/Documents/code/MDP/3D_conv/src/../models/3dcnn_180312_233539/acc_0.90909"
