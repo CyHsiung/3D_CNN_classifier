@@ -1,0 +1,11 @@
+use to classify 3D brain image
+load_data.py: load input data
+    training stage: use load_data
+    testing stage: use load_test
+train.py: train the model
+model.py: model
+predict.py: test stage
+
+*x_train format: numpy array with (None, width, height, depth, channel)
+*y_train format: numpy array with (None, n_class), each of them is a one-hot vector
+    n_class: class number 
