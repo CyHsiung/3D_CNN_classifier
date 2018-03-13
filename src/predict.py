@@ -11,7 +11,7 @@ project_dir = join(project_dir, '..')
 corpus_dir = join(project_dir, 'corpus')
 models_dir = join(project_dir, 'models')
 
-loadModel_dir = '3dcnn_180312_233539'
+loadModel_dir = '3dcnn_180313_132858'
 loadModelName = 'acc_0.90909'
 
 loadModel_dir = join(models_dir, loadModel_dir)

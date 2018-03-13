@@ -22,8 +22,9 @@ os.makedirs(saveModel_dir)
 def train_neural_network(x_train, y_train, x_val, y_val, learning_rate = 0.05, drop_rate = 0.7, epochs = 10, batch_size = 1):
     x_input = tf.placeholder(tf.float32, shape=[None, None, None, None, 1], name = 'input')
     y_input = tf.placeholder(tf.float32, shape=[None, n_class], name = 'output')
+    drop_prob = tf.placeholder(tf.float32, shape = None)
     with tf.name_scope("cross_entropy"):
-        prediction = cnn_model(x_input, drop_rate, seed = 42)
+        prediction = cnn_model(x_input, drop_prob, seed = 42)
         cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction, labels=y_input))
                               
     with tf.name_scope("training"):
@@ -56,7 +57,7 @@ def train_neural_network(x_train, y_train, x_val, y_val, learning_rate = 0.05, d
                 mini_batch_y = y_train[itr * batch_size: min((itr + 1)*batch_size, len(y_train))]
                 if not mini_batch_x:
                     continue
-                _optimizer, _cost = sess.run([optimizer, cost], feed_dict={x_input: mini_batch_x, y_input: mini_batch_y})
+                _optimizer, _cost = sess.run([optimizer, cost], feed_dict={x_input: mini_batch_x, y_input: mini_batch_y, drop_prob: drop_rate})
                 epoch_loss += _cost
 
             #  using mini batch in case not enough memory
